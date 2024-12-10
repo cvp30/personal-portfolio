@@ -1,0 +1,57 @@
+---
+import Network from "@/icons/Network.astro";
+import LinkedIn from "@/icons/LinkedIn.astro";
+import Github from "@/icons/Github.astro";
+---
+
+<script>
+  const socialBtn = document.querySelector("#social-btn") as HTMLButtonElement;
+  const networks = document.querySelectorAll(
+    ".socialLink",
+  ) as NodeListOf<HTMLAnchorElement>;
+
+  socialBtn.addEventListener("click", () => {
+    networks.forEach((link) => {
+      link.classList.toggle("active");
+    });
+  });
+</script>
+
+<div class="relative rounded-full">
+  <button
+    id="social-btn"
+    class="bg-darkBlue rounded-full p-2 z-10 active:scale-90 duration-300"
+  >
+    <Network class="size-8" />
+  </button>
+
+  <a href="" id="linkedin" class="socialLink bg-red-500">
+    <LinkedIn class="size-6" />
+  </a>
+  <a href="" id="github" class="socialLink bg-red-500">
+    <Github class="size-6" />
+  </a>
+</div>
+
+<style>
+  #social-btn {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+  }
+
+  .socialLink {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    @apply text-accent bg-darkBlue p-2 rounded-full active:scale-90 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 transition-all duration-300 invisible;
+  }
+
+  .socialLink.active {
+    @apply rotate-[360deg] z-10 visible;
+  }
+
+  #linkedin.active {
+    @apply -translate-x-20;
+  }
+
+  #github.active {
+    @apply -translate-x-16 -translate-y-20;
+  }
+</style>

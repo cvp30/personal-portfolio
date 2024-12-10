@@ -1,0 +1,48 @@
+<script>
+  const lines = document.querySelectorAll(".line") as NodeListOf<HTMLElement>;
+  lines.forEach((line, index) => {
+    const percentage = ((index + 1) / (lines.length + 1)) * 100;
+    const randomDelay = `${Math.random() * 4}s`;
+    // line.style.setProperty("--i", index.toString());
+    line.style.marginLeft = `${percentage}%`;
+    line.style.setProperty("--delay", randomDelay);
+  });
+</script>
+
+<div class="absolute inset-0">
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+</div>
+
+<style>
+  .line {
+    mask-image: linear-gradient(black 10%, transparent);
+    @apply absolute w-[2px] h-full top-0 bg-darkBlue;
+  }
+
+  .line::after {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      theme(colors.accent) 75%,
+      theme(colors.accent) 100%
+    );
+    animation: drop 6s infinite;
+    animation-delay: var(--delay);
+
+    @apply content-[''] absolute h-[12vh] w-full top-[-20%];
+  }
+
+  @keyframes drop {
+    0% {
+      top: -20%;
+    }
+    100% {
+      top: 120%;
+    }
+  }
+</style>

@@ -1,0 +1,119 @@
+---
+import SkillCard from "@/components/SkillCard.astro";
+import profile from "/public/profile.avif";
+import Code from "@/icons/Code.astro";
+import Database from "@/icons/Database.astro";
+import Integration from "@/icons/Integration.astro";
+import Scalability from "@/icons/Scalability.astro";
+import { basics, skills } from "@cv";
+
+const { name, summary } = basics;
+---
+
+<script></script>
+
+<section id="about" class="w-full min-h-184 space-y-14">
+  <h2 class="text-center">About me</h2>
+  <div
+    class="h-fit w-full flex flex-col lg:flex-row justify-between items-center gap-2"
+  >
+    <div
+      class="imagen size-80 sm:size-112 aspect-square flex justify-center items-end rounded-full bg-accent/10 relative"
+    >
+      <img
+        src={profile.src}
+        class="z-30 absolute rounded-full h-[90%] aspect-square object-contain"
+        alt=""
+      />
+    </div>
+
+    <div
+      class="w-full lg:w-1/2 h-fit lg:h-112 flex flex-col justify-around gap-5"
+    >
+      <div class='space-y-5"'>
+        <h3
+          class="text-center lg:text-start bg-clip-text text-transparent capitalize"
+        >
+          {name}
+        </h3>
+        <p class="text-center lg:text-start">
+          {summary}
+        </p>
+      </div>
+
+      <div
+        class="w-full h-28 flex space-x-8 overflow-hidden [mask-image:_linear-gradient(to_right,_transparent_0,_white_128px,white_calc(100%-128px),_transparent_100%)]"
+      >
+        <div class="flex space-x-8 animate-loop-scroll">
+          {
+            skills.map((skill) => (
+              <div class="h-full aspect-square flex flex-col justify-center items-center gap-3">
+                <img class="size-12" src={skill.image} alt="" />
+                <p class="font-bold">{skill.name}</p>
+              </div>
+            ))
+          }
+        </div>
+        <div class="flex space-x-8 animate-loop-scroll" aria-hidden="true">
+          {
+            skills.map((skill) => (
+              <div class="h-full aspect-square flex flex-col justify-center items-center gap-3">
+                <img class="size-12" src={skill.image} alt="" />
+                <p class="font-bold">{skill.name}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="w-full h-fit sm:w-11/12 mx-auto flex flex-wrap justify-around gap-14"
+  >
+    <SkillCard
+      item="01"
+      MainImage={Code}
+      title="Frontend Development"
+      description="build dynamic and fast user interfaces with a focus on intuitive and accessible design for seamless user experience."
+    />
+
+    <SkillCard
+      item="02"
+      MainImage={Database}
+      title="Backend Development"
+      description="creating efficient APIs and ensuring robust database management for smooth server-side operations."
+    />
+
+    <SkillCard
+      item="03"
+      MainImage={Integration}
+      title="Full Integration"
+      description="Ensures seamless software functionality from architecture to deployment with custom full stack solutions ready for production."
+    />
+
+    <SkillCard
+      item="04"
+      MainImage={Scalability}
+      title="Optimization & Sclability"
+      description="Enhances performance and scalability, providing sustainable and adaptable solutions for future growth."
+    />
+  </div>
+</section>
+
+<style>
+  .imagen::after {
+    @apply content-[''] bg-accent/30 w-3/4 aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-10;
+  }
+
+  .imagen::before {
+    @apply content-[''] bg-accent w-1/2 aspect-square absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-20;
+  }
+
+  h3 {
+    color: transparent;
+    -webkit-text-stroke: 0.8px theme(colors.accent);
+
+    @apply drop-shadow-title;
+  }
+</style>

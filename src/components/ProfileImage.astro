@@ -1,0 +1,83 @@
+---
+import profile from "/public/profile.avif";
+---
+
+<div class="w-80 h-80 rounded-full flex items-center justify-center relative">
+  <svg
+    class="animate-float"
+    width="320"
+    height="320"
+    fill="transparent"
+    viewBox="0 0 350 350"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="175"
+      cy="175"
+      r="160"
+      stroke="#f2f2f2"
+      stroke-width="4"
+      class="rotate-animation dash-animation"
+      stroke-linecap="round"
+      stroke-linejoin="round"></circle>
+  </svg>
+
+  <img
+    src={profile.src}
+    class="w-88 h-88 rounded-b-full object-contain absolute bottom-5 left-0 z-50 profile animate-float"
+    alt=""
+  />
+</div>
+
+<style>
+  circle {
+    filter: drop-shadow(0px 0px 4px theme(colors.base));
+  }
+  .profile {
+    mask-image: linear-gradient(black 10%, transparent);
+  }
+  /* Define la animación de subir y bajar */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  /* Animación de rotación */
+  @keyframes spin {
+    0% {
+      transform: rotate(120deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Animación de stroke-dasharray */
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 15 120 25 25;
+    }
+    50% {
+      stroke-dasharray: 16 25 92 72;
+    }
+    100% {
+      stroke-dasharray: 4 250 22 22;
+    }
+  }
+  /* Define la velocidad y el estilo de la animación float */
+  .animate-float {
+    animation: float 4s ease-in-out infinite; /* Duración de 4s, infinita */
+  }
+
+  .rotate-animation {
+    animation: spin 10s linear infinite alternate; /* Rotación de 20 segundos, en reversa */
+  }
+
+  .dash-animation {
+    animation: dash 10s ease-in-out infinite alternate; /* Stroke dash array cambia cada 20 segundos */
+  }
+</style>

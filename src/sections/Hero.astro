@@ -1,0 +1,42 @@
+---
+import AnimatedTitle from "@/components/AnimatedTitle.astro";
+import MainBackground from "@/components/MainBackground.astro";
+import ProfileImage from "@/components/ProfileImage.astro";
+import Chat from "@/icons/Chat.astro";
+import { basics } from "@cv";
+
+const { name, label, overview, location } = basics;
+---
+
+<section class="w-full min-h-184 flex flex-col gap-4 relative">
+  <MainBackground />
+  <div
+    class="w-full z-10 lg:h-96 mt-20 md:mt-16 flex flex-col-reverse lg:flex-row lg:items-stretch"
+  >
+    <div
+      class="lg:w-7/12 w-full h-full flex flex-col justify-center lg:justify-evenly items-center lg:items-start gap-8"
+    >
+      <AnimatedTitle />
+
+      <p class="w-full lg:w-4/5 text-center lg:text-start">
+        Hello there! I'm <strong>{name}, {label}</strong>
+        based in {location.region}. {overview}
+      </p>
+    </div>
+
+    <div></div>
+
+    <div
+      class="lg:w-5/12 w-full h-80 lg:h-full flex justify-center items-end gap-10"
+    >
+      <ProfileImage />
+    </div>
+  </div>
+
+  <div class="w-full z-10 flex justify-center lg:justify-start gap-8">
+    <a href="#contact" class="button">
+      LET'S CHAT!
+      <Chat class="size-6" />
+    </a>
+  </div>
+</section>

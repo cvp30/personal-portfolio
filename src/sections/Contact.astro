@@ -1,0 +1,135 @@
+---
+import Send from "@/icons/Send.astro";
+---
+
+<script>
+  const contactForm = document.querySelector("form") as HTMLFormElement;
+
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    try {
+      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const form = e.target as HTMLFormElement;
+
+      const formData = new FormData(form);
+      const formValues = Object.fromEntries(formData.entries()) as Record<
+        string,
+        string
+      >;
+      console.log(regex.test(formValues.email));
+
+      if (!formValues.name.trim()) {
+        alert("Name field cannot be empty.");
+        return;
+      }
+      if (!regex.test(formValues.email)) {
+        alert("enter a valid email address.");
+        return;
+      }
+      if (!formValues.message.trim()) {
+        alert("message field cannot be empty.");
+        return;
+      }
+
+      fetch("https://formsubmit.co/carlos.valer.p30@gmail.com", {
+        method: "POST",
+        body: new FormData(form),
+      })
+        .then((response) => {
+          if (response.ok) {
+            form.reset();
+          } else {
+            console.log(
+              "There was a problem with the response from the server.",
+            );
+          }
+        })
+        .catch((error) => {
+          console.log(
+            "There was a network error or the request could not be completed: ",
+            error,
+          );
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  });
+</script>
+
+<section id="contact" class="w-full h-fit">
+  <h2 class="text-center">Contact me</h2>
+
+  <p class="text-center mt-8">
+    <span class="text-accent font-semibold">Let's Connect! </span>
+    Fill out the form or shoot me an email. Questions, comments, or just a hello
+    - I'm always excited to chat!
+  </p>
+  <form
+    class="relative w-full lg:w-10/12 h-fit mx-auto p-4 mt-3 flex flex-col items-center md:items-end gap-3"
+  >
+    <div class="w-full flex flex-col gap-3">
+      <div class="wrapper">
+        <input
+          id="name"
+          class="peer"
+          name="name"
+          type="text"
+          placeholder=""
+          autocomplete="off"
+        />
+        <label for="name">Name</label>
+      </div>
+
+      <div class="wrapper">
+        <input
+          id="email"
+          class="peer"
+          name="email"
+          type="email"
+          placeholder=""
+          autocomplete="off"
+        />
+        <label for="email">Email</label>
+      </div>
+
+      <div class="relative flex items-start h-fit">
+        <textarea
+          class="peer h-40 py-5 resize-none overflow-y-hidden"
+          name="message"
+          id="message"
+          placeholder=""></textarea>
+        <label for="message" class="absolute top-6">Message</label>
+      </div>
+    </div>
+    <input type="hidden" name="_text" value="http://localhost:4321" />
+    <input type="hidden" name="_captcha" value="false" />
+
+    <button type="submit" class="button">
+      Let's talk
+      <Send class="size-6" />
+    </button>
+  </form>
+</section>
+
+<style>
+  .wrapper {
+    @apply relative flex items-center h-fit;
+  }
+
+  .wrapper input {
+    @apply h-16 py-2;
+  }
+  .wrapper label {
+    @apply absolute left-3;
+  }
+
+  input,
+  textarea {
+    @apply w-full border-2 rounded-md px-3 bg-darkBlue/50 backdrop-blur-sm border-transparent hover:border-accent/50 focus:border-accent outline-none duration-300;
+  }
+
+  label {
+    @apply left-3 text-accent -translate-y-5 text-sm peer-focus:-translate-y-5 peer-focus:text-accent peer-focus:text-sm peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-base/50 duration-300;
+  }
+</style>

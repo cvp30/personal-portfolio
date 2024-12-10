@@ -1,0 +1,191 @@
+{
+  "basics": {
+    "name": "Carlos Valer",
+    "label": "Full Stack Developer",
+    "overview": "I create user-friendly web applications that engage and connect with audiences.",
+    "image": "https://demo1.swiftsparklabs.com/wp-content/uploads/2024/04/banner-man.png",
+    "email": "carlos.valer.p30@gmail.com",
+    "summary": "passionate for web development, self-taught with a great ambition to continue growing and learning. Studied computer science, along the way discovered assion for web development, trained in it, adn currently continuing to learn and improve skills as a fullstack developer.",
+    "location": {
+      "address": "",
+      "postalCode": "08820",
+      "city": "el Prat de Llobregat",
+      "countryCode": "PE",
+      "region": "Perú"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "carlosvaler",
+        "url": "https://linkedin.com/in/carlosvaler"
+      },
+      {
+        "network": "GitHub",
+        "username": "cvp30",
+        "url": "https://github.com/cvp30"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "midudev",
+      "position": "Divulgador sobre Programación Web",
+      "url": "https://twitch.tv/midudev",
+      "startDate": "2021-01-01",
+      "endDate": null,
+      "summary": "Streamer de programación más visto en Español en Twitch. +1 millón de seguidores entre todas mis redes sociales. Reconocido por Google, Microsoft y GitHub por mi impacto en la comunidad de desarrolladores.",
+      "highlights": [
+        "Started the company"
+      ]
+    },
+    {
+      "name": "Adevinta",
+      "position": "Lead Frontend Architect",
+      "url": "https://twitch.tv/midudev",
+      "startDate": "2016-06-01",
+      "endDate": "2022-09-01",
+      "summary": "Lideré una convergencia técnica entre diferentes productos y migramos una arquitectura monolítica a otra más flexible y optimizada. Fomenté buenas prácticas y mejoras en la cultura de rendimiento, además de la entrega rápida de valor a los usuarios.",
+      "highlights": [
+        "Started the company"
+      ]
+    },
+    {
+      "name": "Hubii",
+      "position": "Senior FrontEnd Developer",
+      "startDate": "2011-03-01",
+      "endDate": "2016-05-01",
+      "summary": "Desarrollé una plataforma de noticias geolocalizadas y una API para consumir la información. Escalé los servicios para soportar la carga de más de cientos de miles de peticiones al día. Recorté los tiempos de entrega y despliegues a producción a la mitad. Colaboré con Mozilla y Telefónica para desarrollar la primera app para televisores con FirefoxOS.",
+      "highlights": [
+        "Started the company"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universitat Oberta de Catalunya",
+      "url": "https://www.uoc.edu/portal/es/index.html",
+      "area": "Ingeniero de Software",
+      "studyType": "Bachelor",
+      "startDate": "2003-01-01",
+      "endDate": "2009-01-01",
+      "score": "4.0",
+      "courses": [
+        "DB1101 - Basic SQL"
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.com"
+    }
+  ],
+  "skills": [
+    {
+      "name": "React",
+      "image": "./logos/react.svg"
+    },
+    {
+      "name": "GraphQL",
+      "image": "./logos/graphql.svg"
+    },
+    {
+      "name": "Express.js",
+      "image": "./logos/express.svg"
+    },
+    {
+      "name": "Firebase",
+      "image": "./logos/firebase.svg"
+    },
+    {
+      "name": "Javascript",
+      "image": "./logos/javascript.svg"
+    },
+    {
+      "name": "MongoDB",
+      "image": "./logos/mongodb.svg"
+    },
+    {
+      "name": "Node.js",
+      "image": "./logos/node.svg"
+    },
+    {
+      "name": "PostgreSQL",
+      "image": "./logos/postgresql.svg"
+    },
+    {
+      "name": "Tailwind",
+      "image": "./logos/tailwind.svg"
+    }
+  ],
+  "languages": [
+    {
+      "language": "Spanish",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Basic - Intermediate"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Wildlife",
+      "keywords": [
+        "Ferrets",
+        "Unicorns"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Social Network",
+      "description": "A social network leveraging GraphQL for real-time interactions and seamless user experiences.",
+      "images": [
+        "/projects/socialMedia.avif"
+      ],
+      "url": "https://social-media-snapshare.vercel.app/",
+      "technologies": [
+        "React",
+        "GraphQL",
+        "Express",
+        "MongoDB",
+        "Apollo",
+        "TailwindCSS"
+      ]
+    },
+    {
+      "title": "E-commerce",
+      "description": "A modern e-commerce frontend using FakeStoreAPI for a seamless and dynamic shopping experience.",
+      "images": [
+        "/projects/ecommerce.avif"
+      ],
+      "url": "https://ecommerce-blue-pi.vercel.app/",
+      "technologies": [
+        "React",
+        "TailwindCSS",
+        "Redux",
+        "Axios",
+        "Vite"
+      ]
+    },
+    {
+      "title": "Hotel Booking System",
+      "description": "A seamless hotel booking platform with real-time availability and secure payments for hassle-free reservations.",
+      "images": [
+        "/projects/hotelBooking.avif"
+      ],
+      "url": "https://your-destiny-hotel-booking.vercel.app/",
+      "technologies": [
+        "React",
+        "Express",
+        "Sequelize",
+        "PostgreSQL",
+        "Bootstrap",
+        "Mercado Pago"
+      ]
+    }
+  ]
+}

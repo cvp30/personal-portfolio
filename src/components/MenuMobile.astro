@@ -1,0 +1,71 @@
+---
+import Menu from "@/icons/Menu.astro";
+import Close from "@/icons/Close.astro";
+import Home from "@/icons/Home.astro";
+import Projects from "@/icons/Projects.astro";
+import About from "@/icons/About.astro";
+import Chat from "@/icons/Chat.astro";
+---
+
+<script>
+  const menuBtn = document.querySelector("#menuBtn") as HTMLButtonElement;
+  const menu = document.querySelector("#menu") as HTMLDivElement;
+  const links = document.querySelectorAll(
+    "nav a",
+  ) as NodeListOf<HTMLAnchorElement>;
+  const closeIcon = document.querySelector("#closeIcon") as SVGElement;
+  const openIcon = document.querySelector("#menuIcon") as SVGElement;
+
+  const toggleFn = () => {
+    openIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
+    menu.classList.toggle("hidden");
+    menu.classList.toggle("flex");
+    document.body.classList.toggle("overflow-hidden");
+  };
+
+  menuBtn.addEventListener("click", toggleFn);
+  links.forEach((link) => {
+    link.addEventListener("click", toggleFn);
+  });
+</script>
+
+<header class="md:hidden w-fit h-fit">
+  <button
+    id="menuBtn"
+    class="fixed z-50 left-6 top-7 active:scale-90 duration-300 p-2 rounded-full bg-gradient-to-br from-accent to-accent/60"
+  >
+    <span id="menuIcon"><Menu /></span>
+    <span id="closeIcon" class="hidden"><Close /></span>
+  </button>
+
+  <div
+    id="menu"
+    class="hidden justify-center items-center mx-auto fixed z-40 w-screen h-screen bg-darkBlue duration-500"
+  >
+    <nav class="space-y-4">
+      <a class="link" id="link-home" href="#">
+        <Home class="size-8" />
+        Home
+      </a>
+      <a class="link" id="link-projects" href="#projects">
+        <Projects class="size-8" />
+        Projects
+      </a>
+      <a class="link" id="link-about" href="#about">
+        <About class="size-8" />
+        About
+      </a>
+      <a class="link" id="link-contact" href="#contact">
+        <Chat class="size-8" />
+        Contact
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  a {
+    @apply flex items-center text-2xl gap-3 rounded-md py-2 px-3 duration-300 ease-in-out;
+  }
+</style>
