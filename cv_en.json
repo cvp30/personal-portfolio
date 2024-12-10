@@ -6,13 +6,7 @@
     "image": "https://demo1.swiftsparklabs.com/wp-content/uploads/2024/04/banner-man.png",
     "email": "carlos.valer.p30@gmail.com",
     "summary": "passionate for web development, self-taught with a great ambition to continue growing and learning. Studied computer science, along the way discovered assion for web development, trained in it, adn currently continuing to learn and improve skills as a fullstack developer.",
-    "location": {
-      "address": "",
-      "postalCode": "08820",
-      "city": "el Prat de Llobregat",
-      "countryCode": "PE",
-      "region": "Perú"
-    },
+    "location": "Perú",
     "profiles": [
       {
         "network": "LinkedIn",
