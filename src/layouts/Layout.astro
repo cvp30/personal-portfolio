@@ -3,6 +3,8 @@
 import "@fontsource-variable/syne";
 import logo from "public/logo.avif";
 import SocialLinkButton from "@/components/SocialLinkButton.astro";
+import Menu from "@/components/navigation/Menu.astro";
+import MenuMobile from "@/components/navigation/MenuMobile.astro";
 
 interface Props {
 	title: string;
@@ -23,6 +25,14 @@ const { title, description } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="bg-background text-base max-w-screen-2xl mx-auto">
+		<div class="hidden md:block">
+			<Menu />
+		</div>
+
+		<div class="md:hidden">
+			<MenuMobile />
+		</div>
+
 		<img
 			src={logo.src}
 			class="fixed top-4 right-6 size-16 z-50"

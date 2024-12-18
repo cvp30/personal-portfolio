@@ -3,7 +3,7 @@
   lines.forEach((line, index) => {
     const percentage = ((index + 1) / (lines.length + 1)) * 100;
     const randomDelay = `${Math.random() * 4}s`;
-    // line.style.setProperty("--i", index.toString());
+
     line.style.marginLeft = `${percentage}%`;
     line.style.setProperty("--delay", randomDelay);
   });

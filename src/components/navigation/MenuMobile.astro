@@ -1,0 +1,62 @@
+---
+import Menu from "@/icons/Menu.astro";
+import Close from "@/icons/Close.astro";
+import Home from "@/icons/Home.astro";
+import Projects from "@/icons/Projects.astro";
+import About from "@/icons/About.astro";
+import Chat from "@/icons/Chat.astro";
+---
+
+<script>
+  const toggle = document.querySelector("#menu-toggle") as HTMLInputElement;
+
+  toggle.addEventListener("change", function () {
+    if (toggle.checked) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  });
+</script>
+
+<div class="w-fit h-fit">
+  <input type="checkbox" name="" id="menu-toggle" class="peer hidden" />
+  <label for="menu-toggle" class="toggle peer-checked:hidden">
+    <Menu class="size-6" />
+  </label>
+  <label for="menu-toggle" class="toggle hidden peer-checked:block">
+    <Close class="size-6" />
+  </label>
+
+  <header
+    class="fixed h-screen w-screen z-40 top-0 bg-neutral -translate-x-full peer-checked:-translate-x-0 duration-300 flex items-center justify-center"
+  >
+    <nav class="space-y-4">
+      <a class="link" id="link-home" href="#">
+        <Home class="size-8" />
+        Home
+      </a>
+      <a class="link" id="link-projects" href="#projects">
+        <Projects class="size-8" />
+        Projects
+      </a>
+      <a class="link" id="link-about" href="#about">
+        <About class="size-8" />
+        About
+      </a>
+      <a class="link" id="link-contact" href="#contact">
+        <Chat class="size-8" />
+        Contact
+      </a>
+    </nav>
+  </header>
+</div>
+
+<style>
+  .toggle {
+    @apply fixed z-50 size-10 left-3 top-7 active:scale-90 duration-300 p-2 rounded-lg bg-darkBlue text-accent;
+  }
+  a {
+    @apply flex items-center text-2xl gap-3 rounded-md py-2 px-3 duration-300 ease-in-out;
+  }
+</style>

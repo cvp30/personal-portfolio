@@ -19,13 +19,28 @@ export default {
 				'title': '0px 0px 4px #ff6400'
 			},
 			animation: {
-				'border-spin': 'border-spin 1.5s linear infinite',
+				'border-spin': 'border-spin 10s linear infinite alternate',
+				'stroke-dash': 'stroke-dash 10s ease-in-out infinite alternate',
+				'float': 'float 4s ease-in-out infinite',
 				"loop-scroll": "loop-scroll 30s linear infinite",
 			},
 			keyframes: {
 				'border-spin': {
-					from: { '--angle': '0deg' },
-					to: { '--angle': '360deg' },
+					from: { transform: "rotate(120deg)" },
+					to: { transform: "rotate(360deg)" },
+				},
+				'stroke-dash': {
+					'0%': { strokeDasharray: '15 120 25 25' },
+					'50%': { strokeDasharray: '16 25 92 72' },
+					'100%': { strokeDasharray: '4 250 22 22' },
+				},
+				'float': {
+					'0%,100%': {
+						transform: "translateY(0)"
+					},
+					'50%': {
+						transform: "translateY(-10px)"
+					}
 				},
 				"loop-scroll": {
 					from: { transform: "translateX(0)" },
@@ -41,10 +56,6 @@ export default {
 				accent: '#ff6400',
 				neutral: '#393e46',
 				background: '#0b0e11',
-
-				secondary: '#470000',
-				// accent: '#616161',
-				foreground: '#f2f2f2'
 			}
 		},
 	},

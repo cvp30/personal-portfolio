@@ -5,12 +5,6 @@ import Link from "@/icons/Link.astro";
 
 <script>
 	const cards = document.querySelectorAll(".card") as NodeListOf<HTMLElement>;
-	const buttons = document.querySelectorAll(
-		".btn",
-	) as NodeListOf<HTMLButtonElement>;
-	const dialogs = document.querySelectorAll(
-		".dialog",
-	) as NodeListOf<HTMLDialogElement>;
 
 	cards.forEach((card) => {
 		card.onmousemove = (e) => {
@@ -20,25 +14,6 @@ import Link from "@/icons/Link.astro";
 			card.style.setProperty("--x", x + "px");
 			card.style.setProperty("--y", y + "px");
 		};
-	});
-
-	buttons.forEach((btn, index) => {
-		btn.addEventListener("click", () => {
-			dialogs[index].showModal();
-		});
-	});
-
-	dialogs.forEach((dialog) => {
-		dialog.addEventListener("click", (event) => {
-			const rect = dialog.getBoundingClientRect();
-			const isInDialog =
-				event.clientX >= rect.left &&
-				event.clientX <= rect.right &&
-				event.clientY >= rect.top &&
-				event.clientY <= rect.bottom;
-
-			if (!isInDialog) dialog.close();
-		});
 	});
 </script>
 
@@ -54,16 +29,14 @@ import Link from "@/icons/Link.astro";
 						target="_blank"
 						rel="noopener noreferrer"
 						role="link"
-						class="w-fit flex gap-1 items-center group"
+						class="w-fit flex gap-1 items-center hover:drop-shadow-text duration-300 group"
 					>
-						<h4 class="group-hover:drop-shadow-text duration-150">
-							{project.title}
-						</h4>
-						<Link class="size-4 group-hover:drop-shadow-text transition-transform transform group-hover:scale-[1.3] duration-300" />
+						<h4 class="">{project.title}</h4>
+						<Link class="size-4 group-hover:scale-[1.3] duration-300" />
 					</a>
 				</header>
 
-				<div class="w-full space-y-3 grow ">
+				<div class="w-full space-y-3 grow">
 					<p class="line-clamp-3">{project.description}</p>
 					<div class="w-full flex flex-wrap gap-2">
 						{project.technologies.map((tech) => (
@@ -74,19 +47,17 @@ import Link from "@/icons/Link.astro";
 					</div>
 				</div>
 
-				<footer class="ml-auto flex gap-4">
-					<button class="btn text-sm hover:drop-shadow-text duration-300">
-						Gallery
-					</button>
-					<dialog class="dialog min-w-80 w-184 aspect-video">
-						<img
-							src={project.images[0]}
-							alt="image"
-							class="w-full h-full object-cover"
-						/>
-					</dialog>
-
-					{/* <SocialLink href={""} tag="p" title="Github" /> */}
+				<footer class="w-full flex items-center justify-end gap-4">
+					<a
+						href={project.github}
+						target="_blank"
+						rel="noopener noreferrer"
+						role="link"
+						class="w-fit flex gap-1 items-center hover:drop-shadow-text duration-300 group"
+					>
+						<p class="text-sm">Github</p>
+						<Link class="size-4 group-hover:scale-[1.3] duration-300" />
+					</a>
 				</footer>
 			</article>
 		))
@@ -117,29 +88,5 @@ import Link from "@/icons/Link.astro";
 		inset: 1px;
 		border-radius: 6px;
 		background: theme(colors.background);
-	}
-
-	/* 2.AL ABRIR */
-	dialog[open] {
-		scale: 1;
-		transition: scale 0.3s ease-in-out;
-
-		/* 1. AL INICIO */
-		@starting-style {
-			scale: 0;
-		}
-	}
-
-	/* 3. AL CERRAR */
-	dialog {
-		transition:
-			scale 0.3s ease,
-			display 0.3s ease allow-discrete;
-		scale: 0;
-	}
-
-	dialog::backdrop {
-		background-color: theme(colors.background);
-		opacity: 0.7;
 	}
 </style>
